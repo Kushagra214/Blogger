@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+
+    <body class="container">
+        <div class="page-header">
+            <h1 style="text-align: center;">Welcome to the travel blogs!</h1>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Log In</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <h1 style="color: firebrick;">Welcome to your Dashboard</h1><br>
+
+        <section class="container row" style="background-color:whitesmoke;">
+            <h3 style="text-decoration: underline;">Your Blog -</h3>
+            <div class="container row"style="margin-top: 30px;">
+                <div class="column" style="float: left; width: 50%; padding: 5px;font-size:16px;">
+                    <h3 style="color:royalblue"><%=(obj.blogTitle)%></h3>
+                    <br><p><%=(obj.blogDesc)%></p><br>
+                </div>
+                <div class="column" style="float: left; width: 33.33%; padding: 5px;">
+                    <img style="float: right;" id="image" src="/img/<%=(obj.fileName);%>" width="200px"/>
+                </div>
+            </div>
+        </section>
+
+        <section id='noBlog'>
+            <h3><br>Add or Edit your existing Blog</h3><br>
+            <form style="font-size: larger;" action="/dashboard" enctype="multipart/form-data" method="POST">
+                <div>
+                    <label>Blog Title:&emsp;</label>
+                    <input type="text" name="blogTitle" placeholder="title"/>
+                </div><br>
+                <div>
+                    <label>Blog Description:&emsp;</label>
+                    <input type="text" name="blogDesc" placeholder="description"/>
+                </div><br>
+                <div>
+                    <label>Blog Image:</label>
+                    <input type="file" id="myFile" name="file"/>
+                </div><br>
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Add Blog"/>
+                </div>
+            </form>
+        </section>
+
+        <section id = 'db' style="display: none;">
+            <p id = 'db_text'>Display text</p>
+            <img id = 'db_img' src = ''>
+        </section>
+
+    </body>
+</html>
