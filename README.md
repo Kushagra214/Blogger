@@ -1,2 +1,2 @@
 # Blogger
-A place to create, read and update blogs of different users.
+A place to create, read and update blogs of various creative writers.
